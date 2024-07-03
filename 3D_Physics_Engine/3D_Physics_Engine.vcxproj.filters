@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Assignment.cpp" />
+    <ClCompile Include="Extras\GLFontRenderer.cpp" />
+    <ClCompile Include="Extras\Camera.cpp">
+      <Filter>VisualDebugger</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>VisualDebugger</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDScreen.cpp">
+      <Filter>VisualDebugger</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine.cpp">
+      <Filter>PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualDebugger.cpp">
+      <Filter>VisualDebugger</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Extras\Renderer.cpp">
+      <Filter>VisualDebugger</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>PhysicsEngine\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicActor.cpp">
+      <Filter>PhysicsEngine\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticActor.cpp">
+      <Filter>PhysicsEngine\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Joint.cpp">
+      <Filter>PhysicsEngine\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="RevoluteJoint.cpp">
+      <Filter>PhysicsEngine\Joints</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFoot.cpp">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundaryTrigger.cpp">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalFrame.cpp">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MySimulationEventCallback.cpp">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PenaltyScene.cpp">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClCompile>
+    <ClCompile Include="Capsule.cpp">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvexMesh.cpp">
+      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMesh.cpp">
+      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exception.h" />
+    <ClInclude Include="Extras\GLFontData.h" />
+    <ClInclude Include="Extras\GLFontRenderer.h" />
+    <ClInclude Include="Extras\UserData.h" />
+    <ClInclude Include="Extras\Camera.h">
+      <Filter>VisualDebugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Extras\HUD.h">
+      <Filter>VisualDebugger</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDScreen.h">
+      <Filter>VisualDebugger</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine.h">
+      <Filter>PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualDebugger.h">
+      <Filter>VisualDebugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MyPhysicsEngine.h">
+      <Filter>PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Extras\Renderer.h">
+      <Filter>VisualDebugger</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>PhysicsEngine\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicActor.h">
+      <Filter>PhysicsEngine\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticActor.h">
+      <Filter>PhysicsEngine\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Joint.h">
+      <Filter>PhysicsEngine\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="RevoluteJoint.h">
+      <Filter>PhysicsEngine\Joints</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFoot.h">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundaryTrigger.h">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GoalFrame.h">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MySimulationEventCallback.h">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClInclude>
+    <ClInclude Include="PenaltyScene.h">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>PhysicsEngine\AssignmentScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClInclude>
+    <ClInclude Include="Capsule.h">
+      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvexMesh.h">
+      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleMesh.h">
+      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="PhysicsEngine">
+      <UniqueIdentifier>{9da9cf31-968a-46f7-84ed-237e0c5244d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisualDebugger">
+      <UniqueIdentifier>{97c87df7-8b32-4902-83a7-53d995c260d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsEngine\Actors">
+      <UniqueIdentifier>{cc0e46a7-973a-453a-9bf2-40b75020fe8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsEngine\Joints">
+      <UniqueIdentifier>{9b3871a3-f73a-48f6-8477-839608c8c1e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsEngine\AssignmentScene">
+      <UniqueIdentifier>{e6aebee5-7081-43ea-9ea9-7ea9200e2eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsEngine\Actors\PrimitiveActors">
+      <UniqueIdentifier>{2b93c2e3-70a8-410d-8330-9fc63df48caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsEngine\Actors\MeshActors">
+      <UniqueIdentifier>{2f59782e-8bd1-421e-aa17-7d49b16247dc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
