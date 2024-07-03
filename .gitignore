@@ -18,9 +18,9 @@ data/
 *.vcproj.*
 *.vcxproj.*
 *.sdf
+*.filters
 
 #codeblocks files
-*/*/*.layout
 */*/*.depend
 
 Docs/html
