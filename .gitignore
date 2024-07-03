@@ -14,9 +14,11 @@ data/
 *.dll
 #*.lib
 *.ncb
+*.suo
 *.vcproj.*
 *.vcxproj.*
 *.sdf
+*.filters
 
 #codeblocks files
 */*/*.depend
