@@ -5,18 +5,19 @@
 
 namespace PhysicsEngine::Actors::MeshActors
 {
-
+	//Wrapper for a user-defined triangle mesh object. This allows the creation of complex shapes.
+	//Inherits from StaticActor class as triangle meshes are too computationally demanding for dynamic rigidbody collisions.
 	class TriangleMesh : public StaticActor
 	{
 
-	protected:
+	private:
 
 		//mesh cooking (helper function)
 		PxTriangleMesh* CookMesh(const PxTriangleMeshDesc& mesh_desc);
 
 
 	public:
-		//a Convex Mesh with some optional default parameters:
+		// Triangle Mesh with some optional default parameters:
 		// - verticies (required)
 		// - triangles (required)
 		// - pose in 0,0,0

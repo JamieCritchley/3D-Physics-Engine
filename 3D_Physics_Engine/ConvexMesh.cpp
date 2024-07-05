@@ -3,9 +3,9 @@
 namespace PhysicsEngine::Actors::MeshActors
 {
 
-	//Unchanged from original, may be errors but currently don't understand code
 	ConvexMesh::ConvexMesh(const std::vector<PxVec3>& verts, const PxTransform& pose, PxReal density) : DynamicActor(pose)
 	{
+		//Descriptor containing input data for mesh object creation
 		PxConvexMeshDesc mesh_desc;
 		mesh_desc.points.count = (PxU32)verts.size();
 		mesh_desc.points.stride = sizeof(PxVec3);
@@ -16,11 +16,12 @@ namespace PhysicsEngine::Actors::MeshActors
 		CreateShape(PxConvexMeshGeometry(CookMesh(mesh_desc)), density);
 	}
 
-	//Unchanged from original, may be errors but currently don't understand code
+
 	PxConvexMesh* ConvexMesh::CookMesh(const PxConvexMeshDesc& mesh_desc)
 	{
 		PxDefaultMemoryOutputStream stream;
 
+		//Checks for successful mesh cooking. Currently unsure if exception is correctly handled - may need to revist
 		if (!GetCooking()->cookConvexMesh(mesh_desc, stream))
 			throw new Exception("ConvexMesh::CookMesh, cooking failed.");
 
