@@ -2,7 +2,7 @@
 
 #include "DynamicActor.h"
 
-namespace PhysicsEngine::Actors::MeshActors
+namespace PhysicsEngine::ActorTemplates::MeshActors
 {
 
 	//Wrapper for a user-defined convex mesh object. This allows the creation of complex shapes. 

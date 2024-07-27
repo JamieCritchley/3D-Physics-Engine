@@ -7,7 +7,7 @@
 
 namespace PhysicsEngine::AssignmentScene {
 
-    class GoalFrame : public Actors::StaticActor
+    class GoalFrame : public ActorTemplates::StaticActor
 
     {
     public:

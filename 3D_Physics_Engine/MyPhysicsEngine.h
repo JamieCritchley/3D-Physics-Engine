@@ -14,8 +14,8 @@
 namespace PhysicsEngine
 {
 	using namespace std;
-	using namespace Actors::MeshActors;
-	using namespace Actors::PrimitiveActors;
+	using namespace ActorTemplates::MeshActors;
+	using namespace ActorTemplates::PrimitiveActors;
 
 	//a list of colours: Circus Palette
 	static const PxVec3 color_palette[] = {PxVec3(46.f/255.f,9.f/255.f,39.f/255.f),PxVec3(217.f/255.f,0.f/255.f,0.f/255.f),

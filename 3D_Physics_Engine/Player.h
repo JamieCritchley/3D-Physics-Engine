@@ -10,9 +10,9 @@ namespace PhysicsEngine::AssignmentScene {
 	class Player
 	{
 	private:
-		Actors::PrimitiveActors::Box* upperLeg;
+		ActorTemplates::PrimitiveActors::Box* upperLeg;
 		PlayerFoot* lowerLeg;
-		Actors::PrimitiveActors::Box* body;
+		ActorTemplates::PrimitiveActors::Box* body;
 		Joints::RevoluteJoint* kneeJoint;
 		Joints::RevoluteJoint* hipJoint;
 		PxReal kickPower; //In Newtons
@@ -25,7 +25,7 @@ namespace PhysicsEngine::AssignmentScene {
 		Player(PxTransform pos = PxTransform(PxIdentity));
 
 		//Getter for actors to allow them to be added to scene, have colour set, etc.
-		std::vector<Actors::Actor*> GetActors();
+		std::vector<ActorTemplates::Actor*> GetActors();
 
 		//Rotates player around the ball - positive value for right, negative for left
 		void Rotate(PxReal degrees);

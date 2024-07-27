@@ -8,7 +8,7 @@ namespace PhysicsEngine::Joints {
     class RevoluteJoint : public Joint
     {
 	public:
-		RevoluteJoint(Actors::Actor* actor0, const PxTransform& localFrame0, Actors::Actor* actor1, const PxTransform& localFrame1);
+		RevoluteJoint(ActorTemplates::Actor* actor0, const PxTransform& localFrame0, ActorTemplates::Actor* actor1, const PxTransform& localFrame1);
 
 		void SetDriveVelocity(PxReal value);
 

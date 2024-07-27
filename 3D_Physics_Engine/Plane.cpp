@@ -1,6 +1,6 @@
 #include "Plane.h"
 
-namespace PhysicsEngine::Actors::PrimitiveActors
+namespace PhysicsEngine::ActorTemplates::PrimitiveActors
 {
 	Plane::Plane(PxVec3 normal, PxReal distance) : StaticActor(PxTransformFromPlaneEquation(PxPlane(normal, distance)))
 	{

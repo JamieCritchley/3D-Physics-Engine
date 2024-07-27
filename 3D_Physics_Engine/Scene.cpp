@@ -50,7 +50,7 @@ namespace PhysicsEngine
 
 	void Scene::CustomUpdate() {}
 
-	void Scene::AddActor(Actors::Actor* actor)
+	void Scene::AddActor(ActorTemplates::Actor* actor)
 	{
 		px_scene->addActor(*actor->GetActor());
 	}

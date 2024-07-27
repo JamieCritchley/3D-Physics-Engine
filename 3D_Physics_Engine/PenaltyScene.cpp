@@ -28,13 +28,13 @@ namespace PhysicsEngine::AssignmentScene {
 		GetMaterial()->setDynamicFriction(.02f);
 		GetMaterial()->setStaticFriction(.02f);
 
-		plane = new Actors::PrimitiveActors::Plane();
+		plane = new ActorTemplates::PrimitiveActors::Plane();
 		plane->SetColor(PxVec3(19.0f / 255.0f, 133.0f / 255.0f, 16.0f / 255.0f)); //Set to grass colour
 		AddActor(plane);
 
 		//0,0,0 is used as penalty spot
 		//Init football
-		ball = new Actors::PrimitiveActors::Sphere(PxTransform(physx::PxVec3(0, 0.055, 0)), 0.11, 77.52f); //Radius and denisty based on IFAB
+		ball = new ActorTemplates::PrimitiveActors::Sphere(PxTransform(physx::PxVec3(0, 0.055, 0)), 0.11, 77.52f); //Radius and denisty based on IFAB
 		ball->SetColor(PxVec3(255.0f / 255.0f, 247.0f / 255.0f, 0.0f / 255.0f));
 		ball->GetActor()->setName("Ball");
 		AddActor(ball);
@@ -96,8 +96,8 @@ namespace PhysicsEngine::AssignmentScene {
 		player = new Player(PxTransform(PxVec3(.1, 0, -.3)));
 
 		//player object is made up of multiple actors, which all need colour and to be added to the scene
-		std::vector<Actors::Actor*> temps = player->GetActors();
-		for (Actors::Actor* temp : temps)
+		std::vector<ActorTemplates::Actor*> temps = player->GetActors();
+		for (ActorTemplates::Actor* temp : temps)
 		{
 			temp->SetColor(PxVec3(255.0f / 255.0f, 13.0f / 255.0f, 0.0f / 255.0f));
 			AddActor(temp);
@@ -166,9 +166,9 @@ namespace PhysicsEngine::AssignmentScene {
 		//Have to reset player's joint motors too
 		player->ResetMotors();
 		//player object is made up of multiple actors, which all need to be reset
-		std::vector<Actors::Actor*> temps = player->GetActors();
-		for (Actors::Actor* temp : temps) {
-			Actors::DynamicActor* dynamicTemp = (Actors::DynamicActor*)temp;
+		std::vector<ActorTemplates::Actor*> temps = player->GetActors();
+		for (ActorTemplates::Actor* temp : temps) {
+			ActorTemplates::DynamicActor* dynamicTemp = (ActorTemplates::DynamicActor*)temp;
 			dynamicTemp->ResetPos();
 		}
 
@@ -243,7 +243,7 @@ namespace PhysicsEngine::AssignmentScene {
 		//If input has been given to kick, check if movement in leg has started
 		if (hasPlayerKicked && !hasLegStartedMoving) {
 
-			std::vector<Actors::Actor*> temps = player->GetActors();
+			std::vector<ActorTemplates::Actor*> temps = player->GetActors();
 			for (int i = 0; i < temps.size(); i++) {
 				//Last actor is body which is kinematic, so don't check
 				if (i == temps.size() - 1) {
@@ -268,7 +268,7 @@ namespace PhysicsEngine::AssignmentScene {
 		}
 
 		bool hasPlayerStopped = true;
-		std::vector<Actors::Actor*> temps = player->GetActors();
+		std::vector<ActorTemplates::Actor*> temps = player->GetActors();
 		for (int i = 0; i < temps.size(); i++) {
 			//Last actor is body which is kinematic, so don't check
 			if (i == temps.size() - 1) {

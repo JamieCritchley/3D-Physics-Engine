@@ -1,6 +1,6 @@
 #include "Sphere.h"
 
-namespace PhysicsEngine::Actors::PrimitiveActors
+namespace PhysicsEngine::ActorTemplates::PrimitiveActors
 {
 	Sphere::Sphere(const PxTransform& pose, PxReal radius, PxReal density) : DynamicActor(pose)
 	{

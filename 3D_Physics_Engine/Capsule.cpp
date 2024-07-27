@@ -1,6 +1,6 @@
 #include "Capsule.h"
 
-namespace PhysicsEngine::Actors::PrimitiveActors
+namespace PhysicsEngine::ActorTemplates::PrimitiveActors
 {
 	Capsule::Capsule(const PxTransform& pose, PxVec2 dimensions, PxReal density) : DynamicActor(pose)
 	{

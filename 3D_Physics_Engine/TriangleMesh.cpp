@@ -1,6 +1,6 @@
 #include "TriangleMesh.h"
 
-namespace PhysicsEngine::Actors::MeshActors
+namespace PhysicsEngine::ActorTemplates::MeshActors
 {
 
 	TriangleMesh::TriangleMesh(const std::vector<PxVec3>& verts, const std::vector<PxU32>& trigs, 

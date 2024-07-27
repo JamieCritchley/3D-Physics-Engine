@@ -2,8 +2,9 @@
 
 #include "DynamicActor.h"
 
-namespace PhysicsEngine::Actors::PrimitiveActors
+namespace PhysicsEngine::ActorTemplates::PrimitiveActors
 {
+	//Wrapper for a dynamic sphere object
 	class Sphere : public DynamicActor
 	{
 

@@ -16,13 +16,13 @@ namespace PhysicsEngine::AssignmentScene {
 	class PenaltyScene : public Scene
 	{
 	private:
-		Actors::PrimitiveActors::Plane* plane;
-		Actors::PrimitiveActors::Sphere* ball;
+		ActorTemplates::PrimitiveActors::Plane* plane;
+		ActorTemplates::PrimitiveActors::Sphere* ball;
 		GoalFrame* goalFrame;
 		Player* player;
 		vector<BoundaryTrigger*> boundaries;
 		vector<BoundaryTrigger*> lines;
-		vector<Actors::PrimitiveActors::Box*> humans;
+		vector<ActorTemplates::PrimitiveActors::Box*> humans;
 		MySimulationEventCallback* myEventCallback;
 		VisualDebugger::HUD* hud;
 		int score = 0;

@@ -39,7 +39,7 @@ namespace PhysicsEngine
 		void Update(PxReal dt);
 
 		///Add single actor to scene
-		void AddActor(Actors::Actor* actor);
+		void AddActor(ActorTemplates::Actor* actor);
 
 		///Get the PxScene object
 		PxScene* GetScene();

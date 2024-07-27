@@ -2,7 +2,7 @@
 
 namespace PhysicsEngine::Joints {
 
-	RevoluteJoint::RevoluteJoint(Actors::Actor* actor0, const PxTransform& localFrame0, Actors::Actor* actor1, const PxTransform& localFrame1)
+	RevoluteJoint::RevoluteJoint(ActorTemplates::Actor* actor0, const PxTransform& localFrame0, ActorTemplates::Actor* actor1, const PxTransform& localFrame1)
 	{
 		PxRigidActor* px_actor0 = 0;
 		if (actor0)

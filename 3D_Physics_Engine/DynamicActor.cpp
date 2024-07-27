@@ -1,8 +1,8 @@
 #include "DynamicActor.h"
 
-namespace PhysicsEngine::Actors 
+namespace PhysicsEngine::ActorTemplates 
 {
-	DynamicActor::DynamicActor(const PxTransform& pose) : Actor()
+	DynamicActor::DynamicActor(const PxTransform& pose)
 	{
 		startingPos = pose;
 		actor = (PxActor*)GetPhysics()->createRigidDynamic(pose);

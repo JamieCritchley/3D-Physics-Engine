@@ -3,7 +3,7 @@
 
 namespace PhysicsEngine::AssignmentScene {
 
-    class PlayerFoot : public Actors::DynamicActor
+    class PlayerFoot : public ActorTemplates::DynamicActor
     {
     public:
 

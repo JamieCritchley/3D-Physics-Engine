@@ -1,6 +1,6 @@
 #include "ConvexMesh.h"
 
-namespace PhysicsEngine::Actors::MeshActors
+namespace PhysicsEngine::ActorTemplates::MeshActors
 {
 
 	ConvexMesh::ConvexMesh(const std::vector<PxVec3>& verts, const PxTransform& pose, PxReal density) : DynamicActor(pose)

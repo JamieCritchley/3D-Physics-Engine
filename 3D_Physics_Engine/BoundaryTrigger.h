@@ -4,7 +4,7 @@
 
 namespace PhysicsEngine::AssignmentScene {
 
-    class BoundaryTrigger : public Actors::StaticActor
+    class BoundaryTrigger : public ActorTemplates::StaticActor
     
     {
     public:

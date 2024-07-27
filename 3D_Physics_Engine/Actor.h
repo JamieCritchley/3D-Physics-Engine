@@ -2,47 +2,33 @@
 
 #include "PhysicsEngine.h"
 
-namespace PhysicsEngine::Actors
+namespace PhysicsEngine::ActorTemplates
 {
-	///Abstract Actor class
-	///Inherit from this class to create your own actors
+	//Abstract Actor class
 	class Actor
 	{
 
-	//May move some stuff back to public if neccessary
 	protected:
-		PxActor* actor;
+
+		PxActor* actor = 0;
 		std::vector<PxVec3> colors;
 		std::string name = "";
-
-		// Default Actor constructor creates
-		// - empty PxActor
-		// - empty name (string)
-		// - empty colors (PxVec3 vec) 
-		Actor();
-
-		//Gets colour for specific shape index
-		//Default value for shape index is 0, which gets color for first shape
-		const PxVec3* GetColor(PxU32 shape_indx = 0);
-
-		//Basic setter
-		void SetName(const string& name);
-
-		//Basic getter
-		string GetName();
 
 		//Implement a function to add a shape to actor
 		virtual void CreateShape(const PxGeometry& geometry, PxReal density) = 0;
 
 
 	public:
-
 		//Basic getter
 		PxActor* GetActor();
 
 		//Sets colour for specific shape index
 		//Default value for shape index is -1, which sets color for all shapes
 		void SetColor(PxVec3 new_color, PxU32 shape_index = -1);
+
+		//Gets colour for specific shape index
+		//Default value for shape index is 0, which gets color for first shape
+		const PxVec3* GetColor(PxU32 shape_indx = 0);
 
 		//Gets an individual shape, for a specific index
 		//Default value for index is 0, which gets first shape
@@ -59,6 +45,12 @@ namespace PhysicsEngine::Actors
 		void SetMaterial(PxMaterial* new_material, PxU32 shape_index = -1);
 
 		void SetTrigger(bool value, PxU32 index = -1);
+
+		//Basic setter
+		void SetName(const string& name);
+
+		//Basic getter
+		string GetName();
 	};
 
 }

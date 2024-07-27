@@ -1,16 +1,17 @@
 #include "Actor.h"
 
-namespace PhysicsEngine::Actors
+namespace PhysicsEngine::ActorTemplates
 {
-	Actor::Actor(): actor(0)
-	{
-	}
 
 	PxActor* Actor::GetActor()
 	{
 		return actor;
 	}
 
+	//The memory address of all items in the color vector are intended to be passed to the renderer, 
+	//allowing them to be changed here without passing the values again.
+	//This is only implemented in the DynamicActor and StaticActor child classes however - not ideal structure
+	//This structure could be improved to prevent missuse of the color vector (e.g should it be stored as a vector of pointers?). 
 	void Actor::SetColor(PxVec3 new_color, PxU32 shape_index)
 	{
 		//change color of all shapes

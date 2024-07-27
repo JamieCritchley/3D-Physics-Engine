@@ -25,13 +25,13 @@
       <Filter>VisualDebugger</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
-      <Filter>PhysicsEngine\Actors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates</Filter>
     </ClCompile>
     <ClCompile Include="DynamicActor.cpp">
-      <Filter>PhysicsEngine\Actors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates</Filter>
     </ClCompile>
     <ClCompile Include="StaticActor.cpp">
-      <Filter>PhysicsEngine\Actors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates</Filter>
     </ClCompile>
     <ClCompile Include="Joint.cpp">
       <Filter>PhysicsEngine\Joints</Filter>
@@ -58,22 +58,22 @@
       <Filter>PhysicsEngine\AssignmentScene</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClCompile>
     <ClCompile Include="Plane.cpp">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClCompile>
     <ClCompile Include="Sphere.cpp">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClCompile>
     <ClCompile Include="Capsule.cpp">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClCompile>
     <ClCompile Include="ConvexMesh.cpp">
-      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\MeshActors</Filter>
     </ClCompile>
     <ClCompile Include="TriangleMesh.cpp">
-      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\MeshActors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,13 +106,13 @@
       <Filter>VisualDebugger</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
-      <Filter>PhysicsEngine\Actors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates</Filter>
     </ClInclude>
     <ClInclude Include="DynamicActor.h">
-      <Filter>PhysicsEngine\Actors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates</Filter>
     </ClInclude>
     <ClInclude Include="StaticActor.h">
-      <Filter>PhysicsEngine\Actors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates</Filter>
     </ClInclude>
     <ClInclude Include="Joint.h">
       <Filter>PhysicsEngine\Joints</Filter>
@@ -139,22 +139,22 @@
       <Filter>PhysicsEngine\AssignmentScene</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClInclude>
     <ClInclude Include="Plane.h">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClInclude>
     <ClInclude Include="Sphere.h">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClInclude>
     <ClInclude Include="Capsule.h">
-      <Filter>PhysicsEngine\Actors\PrimitiveActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\PrimitiveActors</Filter>
     </ClInclude>
     <ClInclude Include="ConvexMesh.h">
-      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\MeshActors</Filter>
     </ClInclude>
     <ClInclude Include="TriangleMesh.h">
-      <Filter>PhysicsEngine\Actors\MeshActors</Filter>
+      <Filter>PhysicsEngine\ActorTemplates\MeshActors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -164,19 +164,19 @@
     <Filter Include="VisualDebugger">
       <UniqueIdentifier>{97c87df7-8b32-4902-83a7-53d995c260d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PhysicsEngine\Actors">
-      <UniqueIdentifier>{cc0e46a7-973a-453a-9bf2-40b75020fe8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="PhysicsEngine\Joints">
       <UniqueIdentifier>{9b3871a3-f73a-48f6-8477-839608c8c1e4}</UniqueIdentifier>
     </Filter>
     <Filter Include="PhysicsEngine\AssignmentScene">
       <UniqueIdentifier>{e6aebee5-7081-43ea-9ea9-7ea9200e2eb7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PhysicsEngine\Actors\PrimitiveActors">
+    <Filter Include="PhysicsEngine\ActorTemplates">
+      <UniqueIdentifier>{cc0e46a7-973a-453a-9bf2-40b75020fe8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsEngine\ActorTemplates\PrimitiveActors">
       <UniqueIdentifier>{2b93c2e3-70a8-410d-8330-9fc63df48caa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PhysicsEngine\Actors\MeshActors">
+    <Filter Include="PhysicsEngine\ActorTemplates\MeshActors">
       <UniqueIdentifier>{2f59782e-8bd1-421e-aa17-7d49b16247dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

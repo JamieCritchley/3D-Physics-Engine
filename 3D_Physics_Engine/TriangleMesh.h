@@ -3,7 +3,7 @@
 #include "StaticActor.h"
 
 
-namespace PhysicsEngine::Actors::MeshActors
+namespace PhysicsEngine::ActorTemplates::MeshActors
 {
 	//Wrapper for a user-defined triangle mesh object. This allows the creation of complex shapes.
 	//Inherits from StaticActor class as triangle meshes are too computationally demanding for dynamic rigidbody collisions.

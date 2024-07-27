@@ -2,8 +2,9 @@
 
 #include "DynamicActor.h"
 
-namespace PhysicsEngine::Actors::PrimitiveActors
+namespace PhysicsEngine::ActorTemplates::PrimitiveActors
 {
+	//Wrapper for a dynamic capsule object
 	class Capsule : public DynamicActor
 	{
 	public:

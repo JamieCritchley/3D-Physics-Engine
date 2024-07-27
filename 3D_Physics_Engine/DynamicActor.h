@@ -2,7 +2,7 @@
 
 #include "Actor.h"
 
-namespace PhysicsEngine::Actors
+namespace PhysicsEngine::ActorTemplates
 {
 	class DynamicActor : public Actor
 	{

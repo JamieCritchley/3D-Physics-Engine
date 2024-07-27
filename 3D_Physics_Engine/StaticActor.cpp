@@ -1,6 +1,6 @@
 # include "StaticActor.h"
 
-namespace PhysicsEngine::Actors
+namespace PhysicsEngine::ActorTemplates
 {
 	StaticActor::StaticActor(const PxTransform& pose)
 	{

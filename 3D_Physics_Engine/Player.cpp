@@ -5,18 +5,18 @@ namespace PhysicsEngine::AssignmentScene {
 	Player::Player(PxTransform pos) {
 
 		//Positions are set up so that the player's foot is pulled back
-		upperLeg = new Actors::PrimitiveActors::Box(PxTransform(PxVec3(pos.p.x + 0, pos.p.y + 0.71, pos.p.z + 0), PxQuat(-PxPiDivFour, PxVec3(0, 0, 1))), PxVec3(.05, 0.2032, .05), 1010.0f);
+		upperLeg = new ActorTemplates::PrimitiveActors::Box(PxTransform(PxVec3(pos.p.x + 0, pos.p.y + 0.71, pos.p.z + 0), PxQuat(-PxPiDivFour, PxVec3(0, 0, 1))), PxVec3(.05, 0.2032, .05), 1010.0f);
 		lowerLeg = new PlayerFoot(PxTransform(PxVec3(pos.p.x + 0, pos.p.y + 0.4568, pos.p.z + 0), PxQuat(-PxPiDivTwo, PxVec3(0,0,1))));
-		body = new Actors::PrimitiveActors::Box(PxTransform(PxVec3(pos.p.x + 0, pos.p.y + 1.3503, pos.p.z - 0)), PxVec3(.11, 0.3675, 0.2f), 1010.0f);
+		body = new ActorTemplates::PrimitiveActors::Box(PxTransform(PxVec3(pos.p.x + 0, pos.p.y + 1.3503, pos.p.z - 0)), PxVec3(.11, 0.3675, 0.2f), 1010.0f);
 
 		//knee and hip joints connect to respective player body parts
 		PxQuat kneeJointRotation = PxQuat(PxPiDivTwo, PxVec3(0, 1, 0)) * PxQuat(PxPi, PxVec3(0,0,1));
-		kneeJoint = new Joints::RevoluteJoint((Actors::Actor*)upperLeg, PxTransform(PxVec3(0, -0.2032, 0), kneeJointRotation),
-			(Actors::Actor*)lowerLeg, PxTransform(PxVec3(0, 0.05, 0), kneeJointRotation));
+		kneeJoint = new Joints::RevoluteJoint((ActorTemplates::Actor*)upperLeg, PxTransform(PxVec3(0, -0.2032, 0), kneeJointRotation),
+			(ActorTemplates::Actor*)lowerLeg, PxTransform(PxVec3(0, 0.05, 0), kneeJointRotation));
 
 		PxQuat hipJointRotation = PxQuat(PxPiDivTwo, PxVec3(0, 1, 0)) * PxQuat(PxPi, PxVec3(0, 0, 1));
-		hipJoint = new Joints::RevoluteJoint((Actors::Actor*)body, PxTransform(PxVec3(0, -0.245, 0.1), hipJointRotation),
-			(Actors::Actor*)upperLeg, PxTransform(PxVec3(0, 0.3675, 0), hipJointRotation));
+		hipJoint = new Joints::RevoluteJoint((ActorTemplates::Actor*)body, PxTransform(PxVec3(0, -0.245, 0.1), hipJointRotation),
+			(ActorTemplates::Actor*)upperLeg, PxTransform(PxVec3(0, 0.3675, 0), hipJointRotation));
 
 		//Makes body kinematic
 		body->SetKinematic(true);
@@ -35,8 +35,8 @@ namespace PhysicsEngine::AssignmentScene {
 
 	}
 
-	std::vector<Actors::Actor*> Player::GetActors() {
-		std::vector<Actors::Actor*> actors;
+	std::vector<ActorTemplates::Actor*> Player::GetActors() {
+		std::vector<ActorTemplates::Actor*> actors;
 		actors.push_back(upperLeg);
 		actors.push_back(lowerLeg);
 		actors.push_back(body);

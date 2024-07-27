@@ -3,8 +3,9 @@
 #include "StaticActor.h"
 
 
-namespace PhysicsEngine::Actors::PrimitiveActors
+namespace PhysicsEngine::ActorTemplates::PrimitiveActors
 {
+	//Wrapper for a static plane object (planes can only be static)
 	class Plane : public StaticActor
 	{
 
