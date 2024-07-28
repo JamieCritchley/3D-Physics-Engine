@@ -2,16 +2,20 @@
 
 #include "PhysicsEngine.h"
 
+
 namespace PhysicsEngine::ActorTemplates
 {
 	//Abstract Actor class
+	//Look into destructor - class includes hierarhcies and pointers.
+	//^Try to avoid destructors - need to look into smart pointers and get them working
+	//^This ran into the issues of the c-style casts used throughout this code - should look into static and dynamic casts
 	class Actor
 	{
 
 	protected:
 
 		PxActor* actor = 0;
-		std::vector<PxVec3> colors;
+		std::vector<PxVec3*> colors;
 		std::string name = "";
 
 		//Implement a function to add a shape to actor

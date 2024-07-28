@@ -11,26 +11,26 @@ namespace PhysicsEngine::ActorTemplates
 	//The memory address of all items in the color vector are intended to be passed to the renderer, 
 	//allowing them to be changed here without passing the values again.
 	//This is only implemented in the DynamicActor and StaticActor child classes however - not ideal structure
-	//This structure could be improved to prevent missuse of the color vector (e.g should it be stored as a vector of pointers?). 
+	//This structure could be improved to prevent missuse of the color vector
 	void Actor::SetColor(PxVec3 new_color, PxU32 shape_index)
 	{
 		//change color of all shapes
 		if (shape_index == -1)
 		{
 			for (unsigned int i = 0; i < colors.size(); i++)
-				colors[i] = new_color;
+				*colors[i] = new_color;
 		}
 		//or only the selected one
 		else if (shape_index < colors.size())
 		{
-			colors[shape_index] = new_color;
+			*colors[shape_index] = new_color;
 		}
 	}
 
 	const PxVec3* Actor::GetColor(PxU32 shape_indx)
 	{
 		if (shape_indx < colors.size())
-			return &colors[shape_indx];
+			return colors[shape_indx];
 		else
 			return 0;
 	}
