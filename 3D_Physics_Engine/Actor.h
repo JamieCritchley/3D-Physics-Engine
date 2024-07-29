@@ -1,7 +1,7 @@
 #pragma once
 
 #include "PhysicsEngine.h"
-
+#include "memory"
 
 namespace PhysicsEngine::ActorTemplates
 {
@@ -14,7 +14,13 @@ namespace PhysicsEngine::ActorTemplates
 
 	protected:
 
-		PxActor* actor = 0;
+		//This was previuously a PxActor. However, this class is clearly intended to only be used for PxRigidActors, 
+		//as PxCloth/PxParticles do not create shapes. For now, this class will be a wrapper for PxRigidActors, and the engine
+		//can be expanded for cloth and particle systems later.
+		//This also leads to downcasting in static/dynamic child classes - could this be avoided?
+		//Smart pointer could not be used as the destructor is protected - need to use interface for memory management 
+		//(handled in child classes, where the specific actor instance is created)
+		PxRigidActor* actor;
 		std::vector<PxVec3*> colors;
 		std::string name = "";
 
@@ -24,7 +30,7 @@ namespace PhysicsEngine::ActorTemplates
 
 	public:
 		//Basic getter
-		PxActor* GetActor();
+		PxRigidActor* GetActor();
 
 		//Sets colour for specific shape index
 		//Default value for shape index is -1, which sets color for all shapes

@@ -4,7 +4,8 @@ namespace PhysicsEngine::ActorTemplates
 {
 	StaticActor::StaticActor(const PxTransform& pose)
 	{
-		actor = (PxActor*)GetPhysics()->createRigidStatic(pose);
+		//Actor is defined as an empty unique_ptr, and is given a value here to allow creation of dynamic vs static rigidbody
+		actor = GetPhysics()->createRigidStatic(pose);
 		SetName("");
 	}
 
@@ -12,11 +13,14 @@ namespace PhysicsEngine::ActorTemplates
 	{
 		for (unsigned int i = 0; i < colors.size(); i++)
 			delete (UserData*)GetShape(i)->userData;
+
+		//Calls interface for actor's destructor
+		actor->release();
 	}
 
 	void StaticActor::CreateShape(const PxGeometry& geometry, PxReal)
 	{
-		PxShape* shape = ((PxRigidStatic*)actor)->createShape(geometry, *GetMaterial());
+		PxShape* shape = actor->createShape(geometry, *GetMaterial());
 
 		//Create a color pointer for the shape
 		PxVec3* colorptr = new PxVec3;

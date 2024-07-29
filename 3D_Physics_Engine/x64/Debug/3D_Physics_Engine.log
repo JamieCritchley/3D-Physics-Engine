@@ -1,4 +1,10 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Assignment.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Actor.cpp
+  Assignment.cpp
+  BoundaryTrigger.cpp
+  Box.cpp
+  Capsule.cpp
+  ConvexMesh.cpp
   DynamicActor.cpp
   GoalFrame.cpp
 C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\GoalFrame.cpp(9,48): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -15,6 +21,37 @@ C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\GoalFrame.cp
 C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\GoalFrame.cpp(15,44): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\GoalFrame.cpp(16,51): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\GoalFrame.cpp(16,44): warning C4305: 'argument': truncation from 'double' to 'float'
+  PenaltyScene.cpp
+  Plane.cpp
+  Player.cpp
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(8,177): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(8,169): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(8,164): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(8,95): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(9,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(10,128): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(10,123): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(10,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(15,60): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(14,98): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(19,60): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(18,100): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\Player.cpp(18,93): warning C4305: 'argument': truncation from 'double' to 'float'
+  PlayerFoot.cpp
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(7,42): warning C4305: 'argument': truncation from 'double' to 'physx::PxReal'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(7,34): warning C4305: 'argument': truncation from 'double' to 'physx::PxReal'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(7,29): warning C4305: 'argument': truncation from 'double' to 'physx::PxReal'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(8,41): warning C4305: 'argument': truncation from 'double' to 'physx::PxReal'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(8,36): warning C4305: 'argument': truncation from 'double' to 'physx::PxReal'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(8,29): warning C4305: 'argument': truncation from 'double' to 'physx::PxReal'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(11,52): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(12,60): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\3D_Physics_Engine\PlayerFoot.cpp(12,52): warning C4305: 'argument': truncation from 'double' to 'float'
+  RevoluteJoint.cpp
+  Scene.cpp
+  Sphere.cpp
+  StaticActor.cpp
+  TriangleMesh.cpp
   VisualDebugger.cpp
   Generating Code...
   3D_Physics_Engine.vcxproj -> C:\Users\Jamie\Documents\GitHub\3D-Physics-Engine\x64\Debug\3D_Physics_Engine.exe

@@ -3,7 +3,7 @@
 namespace PhysicsEngine::ActorTemplates
 {
 
-	PxActor* Actor::GetActor()
+	PxRigidActor* Actor::GetActor()
 	{
 		return actor;
 	}
@@ -49,8 +49,8 @@ namespace PhysicsEngine::ActorTemplates
 
 	PxShape* Actor::GetShape(PxU32 index)
 	{
-		std::vector<PxShape*> shapes(((PxRigidActor*)actor)->getNbShapes());
-		if (index < ((PxRigidActor*)actor)->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size()))
+		std::vector<PxShape*> shapes(actor->getNbShapes());
+		if (index < actor->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size()))
 			return shapes[index];
 		else
 			return 0;
@@ -58,8 +58,8 @@ namespace PhysicsEngine::ActorTemplates
 
 	std::vector<PxShape*> Actor::GetShapes(PxU32 index)
 	{
-		std::vector<PxShape*> shapes(((PxRigidActor*)actor)->getNbShapes());
-		((PxRigidActor*)actor)->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size());
+		std::vector<PxShape*> shapes(actor->getNbShapes());
+		actor->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size());
 		if (index == -1)
 			return shapes;
 		else if (index < shapes.size() && index > -1)
