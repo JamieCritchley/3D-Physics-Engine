@@ -5,19 +5,21 @@
 
 namespace PhysicsEngine::ActorTemplates
 {
-	//Abstract Actor class
-	//Look into destructor - class includes hierarhcies and pointers.
-	//^Try to avoid destructors - need to look into smart pointers and get them working
-	//^This ran into the issues of the c-style casts used throughout this code - should look into static and dynamic casts
+
+	//This was previuously a PxActor wrapper. However, this class is clearly intended to only be used for PxRigidActors, 
+	//as PxCloth/PxParticles do not create shapes. For now, this class will be a wrapper for PxRigidActors, and the engine
+	//can be expanded for cloth and particle systems later.
+	//Implementation leads to downcasting in dynamic child class - could this be avoided?
+	
+	//Look into destructor - class includes virtual function, need virtual destructor and then rule of 5.
+	//Keep looking for any places smart pointers can be used (Physx's protected destructors prevents them always being used)
 	class Actor
 	{
 
 	protected:
 
-		//This was previuously a PxActor. However, this class is clearly intended to only be used for PxRigidActors, 
-		//as PxCloth/PxParticles do not create shapes. For now, this class will be a wrapper for PxRigidActors, and the engine
-		//can be expanded for cloth and particle systems later.
-		//This also leads to downcasting in static/dynamic child classes - could this be avoided?
+
+
 		//Smart pointer could not be used as the destructor is protected - need to use interface for memory management 
 		//(handled in child classes, where the specific actor instance is created)
 		PxRigidActor* actor;
