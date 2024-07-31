@@ -44,6 +44,8 @@ namespace PhysicsEngine::AssignmentScene {
 		goalFrame->SetColor(PxVec3(1.0f, 1.0f, 1.0f)); //Set goal frame to white, as IFAB specifices this
 		AddActor(goalFrame);
 
+		ActorTemplates::Actor* test = new AssignmentScene::GoalFrame(PxTransform(0,0,0));
+		*test = std::move(*test);
 		//Init boundaires - ball has to cross lines to count as out/goal, so this is used for positioning
 		boundaries.push_back(new BoundaryTrigger(PxTransform(PxVec3(11.5, 1.22, 0)), PxVec3(1, 2.44, 7.32)));
 		boundaries.push_back(new BoundaryTrigger(PxTransform(PxVec3(11.5, 52.49, 0)), PxVec3(1, 100, 100)));

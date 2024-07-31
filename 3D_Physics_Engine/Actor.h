@@ -18,12 +18,16 @@ namespace PhysicsEngine::ActorTemplates
 
 	protected:
 
-
+		////
+		//Actor(const Actor&) = default;
+		//Actor& operator= (const Actor&) = default;
+		//Actor(Actor&&) = default;
+		//Actor& operator= (Actor&&) = default;
 
 		//Smart pointer could not be used as the destructor is protected - need to use interface for memory management 
 		//(handled in child classes, where the specific actor instance is created)
-		PxRigidActor* actor;
-		std::vector<PxVec3*> colors;
+		PxRigidActor* actor = 0;
+		std::vector<std::unique_ptr<PxVec3>> colors;
 		std::string name = "";
 
 		//Implement a function to add a shape to actor
@@ -39,7 +43,7 @@ namespace PhysicsEngine::ActorTemplates
 		void SetColor(PxVec3 new_color, PxU32 shape_index = -1);
 
 		//Gets colour for specific shape index
-		//Default value for shape index is 0, which gets color for first shape
+		//Default value for shape index is 0, which gets color for first color
 		const PxVec3* GetColor(PxU32 shape_indx = 0);
 
 		//Gets an individual shape, for a specific index

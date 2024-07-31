@@ -25,12 +25,10 @@ namespace PhysicsEngine::ActorTemplates
 		PxRigidBodyExt::updateMassAndInertia(*static_cast<PxRigidDynamic*>(actor), density);
 
 		//Create a color pointer for the shape
-		PxVec3* colorptr = new PxVec3;
-		*colorptr = default_color;
-		colors.push_back(colorptr);
+		colors.push_back(std::make_unique<PxVec3>(default_color));
 		//Pass the color pointer to the renderer
 		shape->userData = new UserData();
-		((UserData*)shape->userData)->color = colors[colors.size() - 1];
+		((UserData*)shape->userData)->color = colors[colors.size() - 1].get();
 	}
 
 	void DynamicActor::SetKinematic(bool value)

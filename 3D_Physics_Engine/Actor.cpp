@@ -30,7 +30,7 @@ namespace PhysicsEngine::ActorTemplates
 	const PxVec3* Actor::GetColor(PxU32 shape_indx)
 	{
 		if (shape_indx < colors.size())
-			return colors[shape_indx];
+			return colors[shape_indx].get();
 		else
 			return 0;
 	}
