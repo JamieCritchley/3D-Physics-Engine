@@ -159,7 +159,7 @@ namespace VisualDebugger
 		void RenderCloth(const PxCloth* cloth)
 		{
 			PxClothMeshDesc* mesh_desc = ((UserData*)cloth->userData)->cloth_mesh_desc;
-			PxVec3* color = ((UserData*)cloth->userData)->color;
+			PxVec3 color = ((UserData*)cloth->userData)->color;
 
 			PxU32 quad_count = mesh_desc->quads.count;
 			PxU32* quads = (PxU32*)mesh_desc->quads.data;
@@ -198,7 +198,7 @@ namespace VisualDebugger
 			PxTransform pose = cloth->getGlobalPose();
 			PxMat44 shapePose(pose);
 
-			glColor4f(color->x, color->y, color->z, 1.f);
+			glColor4f(color.x, color.y, color.z, 1.f);
 
 			glPushMatrix();						
 			glMultMatrixf((float*)&shapePose);
@@ -327,7 +327,7 @@ namespace VisualDebugger
 
 						if (shape->userData)
 						{
-							shape_color = *(((UserData*)shape->userData)->color);
+							shape_color = (((UserData*)shape->userData)->color);
 							if (h.getType() == PxGeometryType::ePLANE)
 							{
 								shadow_color = shape_color*0.9;

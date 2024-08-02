@@ -136,9 +136,9 @@ namespace PhysicsEngine
 
 		for (unsigned int i = 0; i < shapes.size(); i++)
 		{
-			PxVec3* color = ((UserData*)shapes[i]->userData)->color;
-			sactor_color_orig.push_back(*color);
-			*color += PxVec3(.2f, .2f, .2f);
+			PxVec3 color = static_cast<UserData*>(shapes[i]->userData)->color;
+			sactor_color_orig.push_back(color);
+			static_cast<UserData*>(shapes[i]->userData)->color += PxVec3(.2f, .2f, .2f);
 		}
 	}
 
@@ -149,7 +149,7 @@ namespace PhysicsEngine
 		actor->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size());
 
 		for (unsigned int i = 0; i < shapes.size(); i++)
-			*((UserData*)shapes[i]->userData)->color = sactor_color_orig[i];
+			static_cast<UserData*>(shapes[i]->userData)->color = sactor_color_orig[i];
 	}
 
 }

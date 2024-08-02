@@ -5,7 +5,7 @@
 
 namespace PhysicsEngine::ActorTemplates
 {
-
+	//Abstract actor class
 	//This was previuously a PxActor wrapper. However, this class is clearly intended to only be used for PxRigidActors, 
 	//as PxCloth/PxParticles do not create shapes. For now, this class will be a wrapper for PxRigidActors, and the engine
 	//can be expanded for cloth and particle systems later.
@@ -18,16 +18,17 @@ namespace PhysicsEngine::ActorTemplates
 
 	protected:
 
-		////
-		//Actor(const Actor&) = default;
-		//Actor& operator= (const Actor&) = default;
-		//Actor(Actor&&) = default;
-		//Actor& operator= (Actor&&) = default;
+		Actor() = default;
+		//Rule of 5 - protected to prevent slicing (C.67 in core guidlines)
+		Actor(const Actor& a) = default;
+		Actor& operator= (const Actor& a) = default;
+		Actor(Actor&&) = default;
+		Actor& operator= (Actor&&) = default;
 
 		//Smart pointer could not be used as the destructor is protected - need to use interface for memory management 
 		//(handled in child classes, where the specific actor instance is created)
+		//This class provides access to the actor's shapes and colors, but is not responsible for handling these resources.
 		PxRigidActor* actor = 0;
-		std::vector<std::unique_ptr<PxVec3>> colors;
 		std::string name = "";
 
 		//Implement a function to add a shape to actor
@@ -35,6 +36,11 @@ namespace PhysicsEngine::ActorTemplates
 
 
 	public:
+
+		//Public virtual destructor - derived classes are intended to be deletable through a base class pointer
+		//"actor" var needs to be released in derived destructors(as it is assigned a value in derived classes, only defined here)
+		virtual ~Actor() = default;
+
 		//Basic getter
 		PxRigidActor* GetActor();
 
@@ -44,7 +50,7 @@ namespace PhysicsEngine::ActorTemplates
 
 		//Gets colour for specific shape index
 		//Default value for shape index is 0, which gets color for first color
-		const PxVec3* GetColor(PxU32 shape_indx = 0);
+		PxVec3 GetColor(PxU32 shape_index = 0);
 
 		//Gets an individual shape, for a specific index
 		//Default value for index is 0, which gets first shape

@@ -8,31 +8,39 @@ namespace PhysicsEngine::ActorTemplates
 		return actor;
 	}
 
-	//The memory address of all items in the color vector are intended to be passed to the renderer, 
-	//allowing them to be changed here without passing the values again.
-	//This is only implemented in the DynamicActor and StaticActor child classes however - not ideal structure
-	//This structure could be improved to prevent missuse of the color vector
+
 	void Actor::SetColor(PxVec3 new_color, PxU32 shape_index)
 	{
+		std::vector<PxShape*> shape_list = GetShapes(shape_index);
 		//change color of all shapes
 		if (shape_index == -1)
 		{
-			for (unsigned int i = 0; i < colors.size(); i++)
-				*colors[i] = new_color;
+			std::vector<PxShape*> shape_list = GetShapes(shape_index);
+			for (int i = 0; i < shape_list.size(); i++)
+			{
+				static_cast<UserData*>(shape_list[i]->userData)->color = new_color;
+			}
 		}
 		//or only the selected one
-		else if (shape_index < colors.size())
+		else if (shape_index < shape_list.size())
 		{
-			*colors[shape_index] = new_color;
+			static_cast<UserData*>(shape_list[shape_index]->userData)->color = new_color;
 		}
 	}
 
-	const PxVec3* Actor::GetColor(PxU32 shape_indx)
+	PxVec3 Actor::GetColor(PxU32 shape_index)
 	{
-		if (shape_indx < colors.size())
-			return colors[shape_indx].get();
+		PxShape* shape = GetShape(shape_index);
+		if (shape != 0)
+		{
+			return static_cast<UserData*>(shape->userData)->color;
+		}
+
+		//Returns uninitialised PxVec3 if the shape_index is not valid - equivelant to the null ptr returns of other functions
 		else
-			return 0;
+		{
+			return PxVec3();
+		}
 	}
 
 	void Actor::SetMaterial(PxMaterial* new_material, PxU32 shape_index)
@@ -51,9 +59,14 @@ namespace PhysicsEngine::ActorTemplates
 	{
 		std::vector<PxShape*> shapes(actor->getNbShapes());
 		if (index < actor->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size()))
+		{
 			return shapes[index];
+		}
+
 		else
+		{
 			return 0;
+		}
 	}
 
 	std::vector<PxShape*> Actor::GetShapes(PxU32 index)
@@ -69,9 +82,11 @@ namespace PhysicsEngine::ActorTemplates
 			return shapes;
 		}
 
-		//empty vector returned if invalid index is given
+		//empty vector returned if invalid index is given - equivelant to the null ptr returns of other functions
 		else
+		{
 			return std::vector<PxShape*>();
+		}
 	}
 
 	void Actor::SetName(const string& new_name)

@@ -11,10 +11,11 @@ namespace PhysicsEngine::ActorTemplates
 
 	StaticActor::~StaticActor()
 	{
-		for (unsigned int i = 0; i < colors.size(); i++)
+		for (unsigned int i = 0; i < GetShapes().size(); i++)
 			delete (UserData*)GetShape(i)->userData;
 
 		//Calls interface for actor's destructor
+		//Also releases all shapes
 		actor->release();
 	}
 
@@ -22,10 +23,7 @@ namespace PhysicsEngine::ActorTemplates
 	{
 		PxShape* shape = actor->createShape(geometry, *GetMaterial());
 
-		//Create a color pointer for the shape
-		colors.push_back(std::make_unique<PxVec3>(default_color));
-		//Pass the color pointer to the renderer
-		shape->userData = new UserData();
-		((UserData*)shape->userData)->color = colors[colors.size() - 1].get();
+		//Initialise the renderer data, including a default color value
+		shape->userData = new UserData(default_color);
 	}
 }
