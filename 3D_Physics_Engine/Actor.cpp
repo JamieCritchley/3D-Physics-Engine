@@ -9,14 +9,13 @@ namespace PhysicsEngine::ActorTemplates
 	}
 
 
-	void Actor::SetColor(PxVec3 new_color, PxU32 shape_index)
+	void Actor::SetColor(const PxVec3& new_color, PxU32 shape_index)
 	{
-		std::vector<PxShape*> shape_list = GetShapes(shape_index);
+		std::vector<PxShape*> shape_list = GetShapes();
 		//change color of all shapes
 		if (shape_index == -1)
 		{
-			std::vector<PxShape*> shape_list = GetShapes(shape_index);
-			for (int i = 0; i < shape_list.size(); i++)
+			for (PxU32 i = 0; i < shape_list.size(); i++)
 			{
 				static_cast<UserData*>(shape_list[i]->userData)->color = new_color;
 			}
@@ -45,14 +44,33 @@ namespace PhysicsEngine::ActorTemplates
 
 	void Actor::SetMaterial(PxMaterial* new_material, PxU32 shape_index)
 	{
-		std::vector<PxShape*> shape_list = GetShapes(shape_index);
-		for (PxU32 i = 0; i < shape_list.size(); i++)
+		std::vector<PxShape*> shape_list = GetShapes();
+
+		//change material of all shapes
+		if (shape_index == -1) 
 		{
-			std::vector<PxMaterial*> materials(shape_list[i]->getNbMaterials());
-			for (unsigned int j = 0; j < materials.size(); j++)
-				materials[j] = new_material;
-			shape_list[i]->setMaterials(materials.data(), (PxU16)materials.size());
+			for (PxU32 i = 0; i < shape_list.size(); i++)
+			{
+				std::vector<PxMaterial*> materials(shape_list[i]->getNbMaterials());
+				for (PxU32 j = 0; j < materials.size(); j++)
+				{
+					materials[j] = new_material;
+				}
+				shape_list[i]->setMaterials(materials.data(), (PxU16)materials.size());
+			}
 		}
+
+		//or only the selected one
+		else if (shape_index < shape_list.size())
+		{
+			std::vector<PxMaterial*> materials(shape_list[shape_index]->getNbMaterials());
+			for (PxU32 j = 0; j < materials.size(); j++)
+			{
+				materials[j] = new_material;
+			}
+			shape_list[shape_index]->setMaterials(materials.data(), (PxU16)materials.size());
+		}
+		
 	}
 
 	PxShape* Actor::GetShape(PxU32 index)
@@ -69,24 +87,11 @@ namespace PhysicsEngine::ActorTemplates
 		}
 	}
 
-	std::vector<PxShape*> Actor::GetShapes(PxU32 index)
+	std::vector<PxShape*> Actor::GetShapes()
 	{
 		std::vector<PxShape*> shapes(actor->getNbShapes());
 		actor->getShapes((PxShape**)&shapes.front(), (PxU32)shapes.size());
-		if (index == -1)
-			return shapes;
-		else if (index < shapes.size() && index > -1)
-		{
-			//Vector sliced if index is within range of vector
-			shapes = vector<PxShape*>(shapes.begin(), shapes.end() - index);
-			return shapes;
-		}
-
-		//empty vector returned if invalid index is given - equivelant to the null ptr returns of other functions
-		else
-		{
-			return std::vector<PxShape*>();
-		}
+		return shapes;
 	}
 
 	void Actor::SetName(const string& new_name)
@@ -95,16 +100,15 @@ namespace PhysicsEngine::ActorTemplates
 		actor->setName(name.c_str());
 	}
 
-	void Actor::SetTrigger(bool value, PxU32 shape_index)
+	void Actor::SetTrigger(const bool& value, PxU32 shape_index)
 	{
-		std::vector<PxShape*> shape_list = GetShapes(shape_index);
+		std::vector<PxShape*> shape_list = GetShapes();
 		for (PxU32 i = 0; i < shape_list.size(); i++)
 		{
 			shape_list[i]->setFlag(PxShapeFlag::eSIMULATION_SHAPE, !value);
 			shape_list[i]->setFlag(PxShapeFlag::eTRIGGER_SHAPE, value);
 		}
 	}
-
 
 	string Actor::GetName()
 	{
