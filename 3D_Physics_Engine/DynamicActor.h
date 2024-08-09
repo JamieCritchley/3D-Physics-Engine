@@ -13,20 +13,16 @@ namespace PhysicsEngine::ActorTemplates
 	private:
 		//Need to store a reference to starting pos to allow dynamic actors to be reset in scene
 		PxTransform startingPos;
+		//As shapes do not store their densities, and each shape's densities are used for mass/inertia tensor calculations, a vector is needed
+		std::vector<PxReal> shapeDensities;
+
+		void CreateShapeHelper(const PxGeometry& geometry, PxReal density);
 
 	protected:
 		//Default constructor - creates dynamic rigidbody from position
 		DynamicActor(const PxTransform& pose);
 
-		//Creates a shape with inputs of gemoetry and density
-		//Material index 0 (defualt material) is used
-		//Default colour also used
-		virtual void CreateShape(const PxGeometry& geometry, PxReal density);
-
 	public:
-		//Deletes actors and renderer related shape data from memoy
-		virtual ~DynamicActor();
-
 		//Changes object's kinematic state
 		void SetKinematic(const bool& value);
 

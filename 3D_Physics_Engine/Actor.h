@@ -5,7 +5,7 @@
 
 namespace PhysicsEngine::ActorTemplates
 {
-	//Abstract actor class
+	//Wrspper for abstract actor class
 	//This was previuously a PxActor wrapper. However, this class is clearly intended to only be used for PxRigidActors, 
 	//as PxCloth/PxParticles do not create shapes. For now, this class will be a wrapper for PxRigidActors, and the engine
 	//can be expanded for cloth and particle systems later.
@@ -13,9 +13,17 @@ namespace PhysicsEngine::ActorTemplates
 	class Actor
 	{
 
+
+	private:
+
+		//An empty function which can be overriden to add extra functionality to the end of CreateShape.
+		virtual void CreateShapeHelper(const PxGeometry& geometry, PxReal density);
+
 	protected:
 
-		Actor() = default;
+		//PxRigidActor is instantiated by derived classes, so wrappers which inherit from this wrapper must create and pass an
+		//actor derived from PxRigidActor
+		Actor(PxRigidActor* Actor);
 		//Rule of 5 - protected to prevent slicing (C.67 in core guidlines)
 		Actor(const Actor& a) = default;
 		Actor& operator= (const Actor& a) = default;
@@ -23,20 +31,20 @@ namespace PhysicsEngine::ActorTemplates
 		Actor& operator= (Actor&&) = default;
 
 		//Smart pointer could not be used as the destructor is protected - need to use interface for memory management 
-		//(handled in child classes, where the specific actor instance is created)
-		//This class provides access to the actor's shapes and colors, but is not responsible for handling these resources.
 		PxRigidActor* actor = 0;
 		std::string name = "";
 
-		//Implement a function to add a shape to actor
-		virtual void CreateShape(const PxGeometry& geometry, PxReal density) = 0;
+		//Creates a shape with the geometry input. If the actor is dynamic, denisty is passed to the virtual CreateShapeHelper function,
+		//which has been overridden to calculate mass and the inertia tensor. Static actors can use a placeholder PxReal for function calls.
+		//Material index 0 (defualt material) is used
+		//Default colour also used
+		void CreateShape(const PxGeometry& geometry, PxReal density);
 
 
 	public:
 
 		//Public virtual destructor - derived classes are intended to be deletable through a base class pointer
-		//"actor" var needs to be released in derived destructors (as it is assigned a value in derived classes, only defined here)
-		virtual ~Actor() = default;
+		virtual ~Actor();
 
 		//Basic getter
 		PxRigidActor* GetActor();
@@ -51,6 +59,8 @@ namespace PhysicsEngine::ActorTemplates
 
 		//Gets an individual shape, for a specific index
 		//Default value for index is 0, which gets first shape
+		//WARNING - do not use this to call setLocalPose. This will not appropriately update the inertia tensor of the object.
+		//Use the <insert function name> function to change a shape position.
 		PxShape* GetShape(PxU32 index = 0);
 
 		//Returns all shapes attached to the actor

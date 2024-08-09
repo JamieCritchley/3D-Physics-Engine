@@ -2,36 +2,16 @@
 
 namespace PhysicsEngine::ActorTemplates 
 {
-	DynamicActor::DynamicActor(const PxTransform& pose): startingPos(pose)
-	{
-		//Actor is defined as an empty pointer, and is given a value here to allow creation of dynamic vs static rigidbodies
-		//As this function creates a PxRigidDynamic, downasts to PxRigidDynamic can be used safetly (e.g in CreateShape function)
-		actor = GetPhysics()->createRigidDynamic(pose);
-		SetName("");
-	}
+	DynamicActor::DynamicActor(const PxTransform& pose): Actor(GetPhysics()->createRigidDynamic(pose)), startingPos(pose) {}
 
-	DynamicActor::~DynamicActor()
+	void DynamicActor::CreateShapeHelper(const PxGeometry& geometry, PxReal density)
 	{
-		std::vector<PxShape*> shapes = GetShapes();
-		for (PxU32 i = 0; i < shapes.size(); i++)
-			delete (UserData*)shapes[i]->userData;
-
-		//Calls interface for actor's destructor
-		//Also releases all shapes
-		actor->release();
-	}
-
-	void DynamicActor::CreateShape(const PxGeometry& geometry, PxReal density)
-	{
-		PxShape* shape = actor->createShape(geometry, *GetMaterial());
+		shapeDensities.push_back(density);
 		//Set mass and intertia tensor(matrix)
-		//TODO - look at this function, as currently it is applying the same mass and inertia to all shapes, regardless of previous
-		//shape density inputs.
-		PxRigidBodyExt::updateMassAndInertia(*static_cast<PxRigidDynamic*>(actor), density);
-
-		//Initialise the renderer data, including a default color value
-		//Unable to use smart pointers here, as the library uses a raw generic pointer
-		shape->userData = new UserData(default_color);
+		//Vector used to store values as PxShape class does not store densities. As this is the only context in which shape density
+		//is necessary, it seemed unecessary to create a dedicate PxShape wrapper.
+		//Note - array pointer not stored for further use by function, so vector address used
+		PxRigidBodyExt::updateMassAndInertia(*static_cast<PxRigidBody*>(actor), &shapeDensities[0], shapeDensities.size());
 	}
 
 	void DynamicActor::SetKinematic(const bool& value)

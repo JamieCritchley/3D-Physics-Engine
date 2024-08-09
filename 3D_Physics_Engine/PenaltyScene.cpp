@@ -128,7 +128,7 @@ namespace PhysicsEngine::AssignmentScene {
 			score++;
 			hud->RemoveLine(VisualDebugger::HUDState::HELP);
 
-			//Remove and replace victory message if player lkeeps scoring after winning
+			//Remove and replace victory message if player keeps scoring after winning
 			if (score > 5) {
 				hud->RemoveLine(VisualDebugger::HUDState::HELP);
 			}

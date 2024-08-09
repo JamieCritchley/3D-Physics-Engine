@@ -14,15 +14,6 @@ namespace PhysicsEngine::ActorTemplates
 		//Default constructor - creates static rigid actor from position
 		StaticActor(const PxTransform& pose);
 
-		//Creates a shape with gemoetry input (blank PxReal input to match virtual function signature)
-		//Material index 0 (defualt material) is used
-		//Default colour also used
-		virtual void CreateShape(const PxGeometry& geometry, PxReal);
-
-	public:
-		//Deletes actors and renderer related shape data from memoy
-		virtual ~StaticActor();
-
 	};
 
 }

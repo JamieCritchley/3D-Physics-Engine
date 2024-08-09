@@ -16,6 +16,7 @@ namespace PhysicsEngine::AssignmentScene {
         //Is a compound object made from cuboids
         //Position is the point halfway inbetween the bottom of the two goalposts
         GoalFrame(PxTransform pos = PxTransform(PxIdentity));
+
     };
 }
 

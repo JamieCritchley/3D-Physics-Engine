@@ -12,7 +12,10 @@ namespace PhysicsEngine::AssignmentScene {
 
 		//Setting local pos
 		GetShape(0)->setLocalPose(PxTransform(PxVec3(0, 2.49, 0))); //Crossbar placed at goalmouth height + half of crossbar width
-		GetShape(1)->setLocalPose(PxTransform(0, 1.22, 3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width#
+		GetShape(1)->setLocalPose(PxTransform(0, 1.22, 3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width
 		GetShape(2)->setLocalPose(PxTransform(0, 1.22, -3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width
+
+		
 	}
+
 }
