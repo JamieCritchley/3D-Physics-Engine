@@ -16,7 +16,15 @@ namespace PhysicsEngine::ActorTemplates
 		//As shapes do not store their densities, and each shape's densities are used for mass/inertia tensor calculations, a vector is needed
 		std::vector<PxReal> shapeDensities;
 
-		void CreateShapeHelper(const PxGeometry& geometry, PxReal density);
+		//Helper which updates mass and inertia tensor
+		void UpdateMassAndIntertiaTensor();
+
+		//Overriden to add extra functionality of updating the actor's mass and inertia tensor when a shape is created.
+		void CreateShapeHelper(const PxGeometry& geometry, const PxReal& density);
+
+		//Overriden to add extra functionality of updating the actor's intertia tensor when shapes are moved relative to their actor.
+		void SetShapePosHelper(const PxU32& shape_index, const PxTransform& relativeTransform);
+
 
 	protected:
 		//Default constructor - creates dynamic rigidbody from position

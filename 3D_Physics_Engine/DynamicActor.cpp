@@ -4,14 +4,24 @@ namespace PhysicsEngine::ActorTemplates
 {
 	DynamicActor::DynamicActor(const PxTransform& pose): Actor(GetPhysics()->createRigidDynamic(pose)), startingPos(pose) {}
 
-	void DynamicActor::CreateShapeHelper(const PxGeometry& geometry, PxReal density)
+	void DynamicActor::UpdateMassAndIntertiaTensor()
 	{
-		shapeDensities.push_back(density);
 		//Set mass and intertia tensor(matrix)
 		//Vector used to store values as PxShape class does not store densities. As this is the only context in which shape density
 		//is necessary, it seemed unecessary to create a dedicate PxShape wrapper.
 		//Note - array pointer not stored for further use by function, so vector address used
 		PxRigidBodyExt::updateMassAndInertia(*static_cast<PxRigidBody*>(actor), &shapeDensities[0], shapeDensities.size());
+	}
+
+	void DynamicActor::CreateShapeHelper(const PxGeometry& geometry, const PxReal& density)
+	{
+		shapeDensities.push_back(density);
+		UpdateMassAndIntertiaTensor();
+	}
+
+	void DynamicActor::SetShapePosHelper(const PxU32& shape_index, const PxTransform& relativeTransform) 
+	{
+		UpdateMassAndIntertiaTensor();
 	}
 
 	void DynamicActor::SetKinematic(const bool& value)

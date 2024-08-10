@@ -16,8 +16,15 @@ namespace PhysicsEngine::ActorTemplates
 
 	private:
 
+		//Copy of renderer data kept in unique_ptr to allow easy deletion. As shapes are released when this wrapper is deleted,
+		//this wrapper and its children also store shape data (which is very limitted) - PxRigidActor and PxShape are tightly coupled. 
+		std::vector<std::unique_ptr<UserData>> shapeRendererData;
+
 		//An empty function which can be overriden to add extra functionality to the end of CreateShape.
-		virtual void CreateShapeHelper(const PxGeometry& geometry, PxReal density);
+		virtual void CreateShapeHelper(const PxGeometry& geometry, const PxReal& density);
+
+		//An empty function which can be overriden to add extra functionality to the end of SetShapePos.
+		virtual void SetShapePosHelper(const PxU32& shape_index, const PxTransform& relativeTransform);
 
 	protected:
 
@@ -38,8 +45,11 @@ namespace PhysicsEngine::ActorTemplates
 		//which has been overridden to calculate mass and the inertia tensor. Static actors can use a placeholder PxReal for function calls.
 		//Material index 0 (defualt material) is used
 		//Default colour also used
-		void CreateShape(const PxGeometry& geometry, PxReal density);
+		void CreateShape(const PxGeometry& geometry, const PxReal& density);
 
+		//Changes the position of one of the actor's shapes relative to the actor - in "actor space". 
+		//If the actor is dynamic, the inertia tensor is recalculated using the overriden SetShapePosHelper
+		void SetShapePos(const PxU32& shape_index, const PxTransform& relativeTransform);
 
 	public:
 
@@ -59,8 +69,8 @@ namespace PhysicsEngine::ActorTemplates
 
 		//Gets an individual shape, for a specific index
 		//Default value for index is 0, which gets first shape
-		//WARNING - do not use this to call setLocalPose. This will not appropriately update the inertia tensor of the object.
-		//Use the <insert function name> function to change a shape position.
+		//WARNING - do not use this to call setLocalPose. This will not appropriately update the inertia tensor of dynamic actors.
+		//Use the SetShapePos function to change a shape position.
 		PxShape* GetShape(PxU32 index = 0);
 
 		//Returns all shapes attached to the actor
