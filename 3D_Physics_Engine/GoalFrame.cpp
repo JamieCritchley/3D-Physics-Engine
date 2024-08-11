@@ -11,9 +11,9 @@ namespace PhysicsEngine::AssignmentScene {
 		CreateShape(PxBoxGeometry(PxVec3(0.05, 1.22, 0.05)), 0); //Posts - not overlapping join, so only needs to be 2.44m high
 
 		//Setting local pos
-		GetShape(0)->setLocalPose(PxTransform(PxVec3(0, 2.49, 0))); //Crossbar placed at goalmouth height + half of crossbar width
-		GetShape(1)->setLocalPose(PxTransform(0, 1.22, 3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width
-		GetShape(2)->setLocalPose(PxTransform(0, 1.22, -3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width
+		SetShapePos(0,PxTransform(0, 2.49, 0)); //Crossbar placed at goalmouth height + half of crossbar width
+		SetShapePos(1,PxTransform(0, 1.22, 3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width
+		SetShapePos(2,PxTransform(0, 1.22, -3.71)); //Posts placed at half goalmouth height (y) and half goalmouth width + half post width
 
 		
 	}
