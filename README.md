@@ -4,5 +4,4 @@ This is a C++ physics engine made using the PhysX middleware SDK. An intentional
 To showcase the engine's functionality, such as forces, joints and motors, a football penalty scene has been made. A renderer is provided to demonstrate this:
 
 
-https://github.com/user-attachments/assets/5ce2187a-1aa6-4a9f-9f7a-5fb212030d7e
-
+https://github.com/user-attachments/assets/56ab83cf-2629-4357-91da-00232c927192
