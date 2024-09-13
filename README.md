@@ -1,6 +1,6 @@
 # 3D Physics Engine
 
-This is a C++ physics engine made using the PhysX middleware SDK. An intentionally poorly written code base was provided by the lecturer, which I improved both in terms of design and features. 
+This is a C++ physics engine made using the PhysX middleware SDK during my final year. An intentionally poorly written code base was provided by the lecturer, which I improved both in terms of design and features. 
 To showcase the engine's functionality, such as forces, joints and motors, a football penalty scene has been made. A renderer is provided to demonstrate this:
 
 
